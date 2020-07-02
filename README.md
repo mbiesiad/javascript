@@ -49,16 +49,16 @@ Other Style Guides
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
   1. [Standard Library](#standard-library)
-  1. [Testing](#testing)
-  1. [Performance](#performance)
+  1. [Testowanie](#testing)
+  1. [Wydajność](#performance)
   1. [Resources](#resources)
   1. [In the Wild](#in-the-wild)
-  1. [Translation](#translation)
+  1. [Tłumaczenia](#translation)
   1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
   1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
-  1. [Contributors](#contributors)
-  1. [License](#license)
-  1. [Amendments](#amendments)
+  1. [Współtwórcy](#contributors)
+  1. [Licencja](#license)
+  1. [Poprawki](#amendments)
 
 ## Types
 
@@ -100,7 +100,7 @@ Other Style Guides
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## References
 
@@ -151,7 +151,7 @@ Other Style Guides
     console.log(b); // ReferenceError
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Objects
 
@@ -325,7 +325,7 @@ Other Style Guides
     const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Arrays
 
@@ -490,7 +490,7 @@ Other Style Guides
     ];
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Destructuring
 
@@ -559,7 +559,7 @@ Other Style Guides
     const { left, top } = processInput(input);
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Strings
 
@@ -642,7 +642,7 @@ Other Style Guides
     const foo = `my name is '${name}'`;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Functions
 
@@ -924,7 +924,7 @@ Other Style Guides
     );
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Arrow Functions
 
@@ -1090,7 +1090,7 @@ Other Style Guides
     )
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Classes & Constructors
 
@@ -1288,7 +1288,7 @@ Other Style Guides
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Modules
 
@@ -1460,7 +1460,7 @@ Other Style Guides
     import baz from './baz';
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Iterators and Generators
 
@@ -1574,7 +1574,7 @@ Other Style Guides
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Properties
 
@@ -1621,7 +1621,7 @@ Other Style Guides
     const binary = 2 ** 10;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Variables
 
@@ -1854,7 +1854,7 @@ Other Style Guides
     // 'coords' is now the 'data' object without its 'type' property.
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Hoisting
 
@@ -1953,7 +1953,7 @@ Other Style Guides
 
   - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) by [Ben Cherry](http://www.adequatelygood.com/).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Comparison Operators & Equality
 
@@ -2136,7 +2136,7 @@ Other Style Guides
     const bar = a + (b / c) * d;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Blocks
 
@@ -2252,7 +2252,7 @@ Other Style Guides
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Control Statements
 
@@ -2323,7 +2323,7 @@ Other Style Guides
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Comments
 
@@ -2464,7 +2464,7 @@ Other Style Guides
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Whitespace
 
@@ -2952,7 +2952,7 @@ Other Style Guides
     ```
     <!-- markdownlint-enable MD012 -->
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Commas
 
@@ -3087,7 +3087,7 @@ Other Style Guides
     );
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Semicolons
 
@@ -3137,7 +3137,7 @@ Other Style Guides
 
     [Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214#7365214).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Type Casting & Coercion
 
@@ -3226,7 +3226,7 @@ Other Style Guides
     const hasAge = !!age;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Naming Conventions
 
@@ -3465,7 +3465,7 @@ Other Style Guides
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Accessors
 
@@ -3534,7 +3534,7 @@ Other Style Guides
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Events
 
@@ -3565,7 +3565,7 @@ Other Style Guides
     });
     ```
 
-  **[⬆ back to top](#table-of-contents)**
+  **[⬆ powrót do góry](#spis-treści)**
 
 ## jQuery
 
@@ -3634,14 +3634,14 @@ Other Style Guides
     $sidebar.find('ul').hide();
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## ECMAScript 5 Compatibility
 
   <a name="es5-compat--kangax"></a><a name="26.1"></a>
   - [27.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)’s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 <a name="ecmascript-6-styles"></a>
 ## ECMAScript 6+ (ES 2015+) Styles
@@ -3669,7 +3669,7 @@ Other Style Guides
 
     > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Standard Library
 
@@ -3709,9 +3709,9 @@ Other Style Guides
     Number.isFinite(parseInt('2e3', 10)); // true
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
-## Testing
+## Testowanie
 
   <a name="testing--yup"></a><a name="28.1"></a>
   - [30.1](#testing--yup) **Yup.**
@@ -3731,9 +3731,9 @@ Other Style Guides
     - 100% test coverage is a good goal to strive for, even if it’s not always practical to reach it.
     - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
-## Performance
+## Wydajność
 
   - [On Layout & Web Performance](https://www.kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](https://jsperf.com/string-vs-array-concat/2)
@@ -3745,7 +3745,7 @@ Other Style Guides
   - [Are JavaScript functions like `map()`, `reduce()`, and `filter()` optimized for traversing arrays?](https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta)
   - Loading...
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Resources
 
@@ -3760,7 +3760,7 @@ Other Style Guides
 
   - [Standard ECMA-262](http://www.ecma-international.org/ecma-262/6.0/index.html)
 
-**Tools**
+**Narzędzia**
 
   - Code Style Linters
     - [ESlint](https://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
@@ -3790,7 +3790,7 @@ Other Style Guides
   - [ES6 Features](https://github.com/lukehoban/es6features) - Luke Hoban
   - [Frontend Guidelines](https://github.com/bendc/frontend-guidelines) - Benjamin De Cock
 
-**Books**
+**Książki**
 
   - [JavaScript: The Good Parts](https://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
   - [JavaScript Patterns](https://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
@@ -3809,7 +3809,7 @@ Other Style Guides
   - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke
   - [You Don’t Know JS: ES6 & Beyond](http://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson
 
-**Blogs**
+**Blogi**
 
   - [JavaScript Weekly](http://javascriptweekly.com/)
   - [JavaScript, JavaScript...](https://javascriptweblog.wordpress.com/)
@@ -3821,12 +3821,12 @@ Other Style Guides
   - [Dmitry Baranovskiy](http://dmitry.baranovskiy.com/)
   - [nettuts](http://code.tutsplus.com/?s=javascript)
 
-**Podcasts**
+**Podcasty**
 
   - [JavaScript Air](https://javascriptair.com/)
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## In the Wild
 
@@ -3935,7 +3935,7 @@ Other Style Guides
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
 ## Translation
 
@@ -3957,20 +3957,21 @@ Other Style Guides
   - ![tr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Turkey.png) **Turkish**: [eraycetinay/javascript](https://github.com/eraycetinay/javascript)
   - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Ukrainian**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript)
   - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnam**: [dangkyokhoang/javascript-style-guide](https://github.com/dangkyokhoang/javascript-style-guide)
+  - ![🇵🇱](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polish**: [mbiesiad/javascript-style-guide](https://github.com/mbiesiad/javascript)
 
 ## The JavaScript Style Guide Guide
 
   - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
-## Chat With Us About JavaScript
+## Chatuj z nami na temat JavaScript
 
-  - Find us on [gitter](https://gitter.im/airbnb/javascript).
+  - Znajdź nas na [gitter](https://gitter.im/airbnb/javascript).
 
-## Contributors
+## Współtwórcy
 
-  - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
+  - [Zobacz Współtwórców](https://github.com/airbnb/javascript/graphs/contributors)
 
-## License
+## Licencja
 
 (The MIT License)
 
@@ -3995,10 +3996,10 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ powrót do góry](#spis-treści)**
 
-## Amendments
+## Poprawki
 
-We encourage you to fork this guide and change the rules to fit your team’s style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
+Zachęcamy do forka tego przewodnika i zmiany zasad w celu dopasowania do przewodnika po stylu dla twojego zespołu. Poniżej możesz wymienić kilka poprawek do przewodnika po stylach. Umożliwia to okresową aktualizację przewodnika po stylu bez konieczności rozwiązywania konfliktów mergowania.
 
 # };
