@@ -1,26 +1,26 @@
-# Airbnb JavaScript Style Guide() {
+# Airbnb Przewodnik po stylu JavaScript() {
 
-*A mostly reasonable approach to JavaScript*
+*Najbardziej rozsądne podejście do JavaScript*
 
-> **Note**: this guide assumes you are using [Babel](https://babeljs.io), and requires that you use [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) or the equivalent. It also assumes you are installing shims/polyfills in your app, with [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) or the equivalent.
+> **Uwaga**: ten przewodnik zakłada, że używasz [Babel](https://babeljs.io), i wymaga użycia [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) lub odpowiednika. Zakłada również, że instalujesz shims/polyfills w swojej aplikacji za pomocą [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) lub odpowiednika.
 
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-This guide is available in other languages too. See [Translation](#translation)
+Ten przewodnik jest dostępny również w innych językach. Zobacz [tłumaczenie](#tłumaczenie)
 
-Other Style Guides
+Inne przewodniki po stylach
 
-  - [ES5 (Deprecated)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
+  - [ES5 (Przestarzały)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
   - [React](react/)
   - [CSS-in-JavaScript](css-in-javascript/)
   - [CSS & Sass](https://github.com/airbnb/css)
   - [Ruby](https://github.com/airbnb/ruby)
 
-## Table of Contents
+## Spis treści
 
-  1. [Types](#types)
+  1. [Typy](#types)
   1. [References](#references)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
@@ -53,17 +53,17 @@ Other Style Guides
   1. [Wydajność](#performance)
   1. [Resources](#resources)
   1. [In the Wild](#in-the-wild)
-  1. [Tłumaczenia](#translation)
+  1. [Tłumaczenie](#translation)
   1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
   1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
   1. [Współtwórcy](#contributors)
   1. [Licencja](#license)
   1. [Poprawki](#amendments)
 
-## Types
+## Typy
 
   <a name="types--primitives"></a><a name="1.1"></a>
-  - [1.1](#types--primitives) **Primitives**: When you access a primitive type you work directly on its value.
+  - [1.1](#types--primitives) **Prymitywne**: Kiedy uzyskujesz dostęp do typu prymitywnego, pracujesz bezpośrednio na jego wartości.
 
     - `string`
     - `number`
@@ -82,10 +82,10 @@ Other Style Guides
     console.log(foo, bar); // => 1, 9
     ```
 
-    - Symbols and BigInts cannot be faithfully polyfilled, so they should not be used when targeting browsers/environments that don’t support them natively.
+    - Symbole i BigInts nie mogą być wiernie wypełniane, więc nie należy ich używać podczas targetowania przeglądarek / środowisk, które nie obsługują ich natywnie.
 
   <a name="types--complex"></a><a name="1.2"></a>
-  - [1.2](#types--complex)  **Complex**: When you access a complex type you work on a reference to its value.
+  - [1.2](#types--complex)  **Złożone**: Kiedy uzyskujesz dostęp do typu złożonego, pracujesz na referencji do jego wartości.
 
     - `object`
     - `array`
@@ -102,36 +102,36 @@ Other Style Guides
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## References
+## Referencje
 
   <a name="references--prefer-const"></a><a name="2.1"></a>
-  - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
+  - [2.1](#references--prefer-const) Użyj `const` dla wszystkich twoich referencji; unikaj używania `var`. eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
 
-    > Why? This ensures that you can’t reassign your references, which can lead to bugs and difficult to comprehend code.
+    > Czemu? To gwarantuje, że nie będziesz mógł ponownie przypisać swoich referencji, co może prowadzić do błędów i trudnego do zrozumienia kodu.
 
     ```javascript
-    // bad
+    // złe
     var a = 1;
     var b = 2;
 
-    // good
+    // dobre
     const a = 1;
     const b = 2;
     ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
-  - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](https://eslint.org/docs/rules/no-var.html)
+  - [2.2](#references--disallow-var) Jeśli musisz zmienić przypisanie referencji, użyj `let` zamiast `var`. eslint: [`no-var`](https://eslint.org/docs/rules/no-var.html)
 
-    > Why? `let` is block-scoped rather than function-scoped like `var`.
+    > Czemu? `let` ma raczej zasięg blokowy niż funkcjonalny `var`.
 
     ```javascript
-    // bad
+    // złe
     var count = 1;
     if (true) {
       count += 1;
     }
 
-    // good, use the let.
+    // dobre, użyj let.
     let count = 1;
     if (true) {
       count += 1;
@@ -139,10 +139,10 @@ Other Style Guides
     ```
 
   <a name="references--block-scope"></a><a name="2.3"></a>
-  - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
+  - [2.3](#references--block-scope) Zauważ, że oba `let` i `const` mają zasięg blokowy.
 
     ```javascript
-    // const and let only exist in the blocks they are defined in.
+    // const i let istnieją tylko w blokach, w których są zdefiniowane.
     {
       let a = 1;
       const b = 1;
@@ -153,23 +153,23 @@ Other Style Guides
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Objects
+## Obiekty
 
   <a name="objects--no-new"></a><a name="3.1"></a>
-  - [3.1](#objects--no-new) Use the literal syntax for object creation. eslint: [`no-new-object`](https://eslint.org/docs/rules/no-new-object.html)
+  - [3.1](#objects--no-new) Użyj literalnej składni do tworzenia obiektów. eslint: [`no-new-object`](https://eslint.org/docs/rules/no-new-object.html)
 
     ```javascript
-    // bad
+    // złe
     const item = new Object();
 
-    // good
+    // dobre
     const item = {};
     ```
 
   <a name="es6-computed-properties"></a><a name="3.4"></a>
-  - [3.2](#es6-computed-properties) Use computed property names when creating objects with dynamic property names.
+  - [3.2](#es6-computed-properties) Używaj obliczonych nazw właściwości podczas tworzenia obiektów z dynamicznymi nazwami właściwości.
 
-    > Why? They allow you to define all the properties of an object in one place.
+    > Czemu? Pozwalają zdefiniować wszystkie właściwości obiektu w jednym miejscu.
 
     ```javascript
 
@@ -177,14 +177,14 @@ Other Style Guides
       return `a key named ${k}`;
     }
 
-    // bad
+    // złe
     const obj = {
       id: 5,
       name: 'San Francisco',
     };
     obj[getKey('enabled')] = true;
 
-    // good
+    // dobre
     const obj = {
       id: 5,
       name: 'San Francisco',
@@ -193,10 +193,10 @@ Other Style Guides
     ```
 
   <a name="es6-object-shorthand"></a><a name="3.5"></a>
-  - [3.3](#es6-object-shorthand) Use object method shorthand. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html)
+  - [3.3](#es6-object-shorthand) Użyj metody obiektowej shorthand. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html)
 
     ```javascript
-    // bad
+    // złe
     const atom = {
       value: 1,
 
@@ -205,7 +205,7 @@ Other Style Guides
       },
     };
 
-    // good
+    // dobre
     const atom = {
       value: 1,
 
@@ -216,34 +216,34 @@ Other Style Guides
     ```
 
   <a name="es6-object-concise"></a><a name="3.6"></a>
-  - [3.4](#es6-object-concise) Use property value shorthand. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html)
+  - [3.4](#es6-object-concise) Użyj wartości właściwości shorthand. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html)
 
-    > Why? It is shorter and descriptive.
+    > Czemu? Jest krótszy i opisowy.
 
     ```javascript
     const lukeSkywalker = 'Luke Skywalker';
 
-    // bad
+    // złe
     const obj = {
       lukeSkywalker: lukeSkywalker,
     };
 
-    // good
+    // dobre
     const obj = {
       lukeSkywalker,
     };
     ```
 
   <a name="objects--grouped-shorthand"></a><a name="3.7"></a>
-  - [3.5](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
+  - [3.5](#objects--grouped-shorthand) Zgrupuj właściwości shorthand na początku deklaracji obiektu.
 
-    > Why? It’s easier to tell which properties are using the shorthand.
+    > Czemu? Łatwiej jest powiedzieć, które właściwości używają shorthand.
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
     const lukeSkywalker = 'Luke Skywalker';
 
-    // bad
+    // złe
     const obj = {
       episodeOne: 1,
       twoJediWalkIntoACantina: 2,
@@ -253,7 +253,7 @@ Other Style Guides
       anakinSkywalker,
     };
 
-    // good
+    // dobre
     const obj = {
       lukeSkywalker,
       anakinSkywalker,
@@ -265,19 +265,19 @@ Other Style Guides
     ```
 
   <a name="objects--quoted-props"></a><a name="3.8"></a>
-  - [3.6](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](https://eslint.org/docs/rules/quote-props.html)
+  - [3.6](#objects--quoted-props) Podaj tylko właściwości, które są niepoprawnymi identyfikatorami. eslint: [`quote-props`](https://eslint.org/docs/rules/quote-props.html)
 
-    > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
+    > Czemu? Ogólnie uważamy, że jest subiektywnie łatwiejszy do odczytania. Poprawia podświetlanie składni, a także jest łatwiej zoptymalizowany przez wiele silników JS.
 
     ```javascript
-    // bad
+    // złe
     const bad = {
       'foo': 3,
       'bar': 4,
       'data-blah': 5,
     };
 
-    // good
+    // dobre
     const good = {
       foo: 3,
       bar: 4,
@@ -286,9 +286,9 @@ Other Style Guides
     ```
 
   <a name="objects--prototype-builtins"></a>
-  - [3.7](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`. eslint: [`no-prototype-builtins`](https://eslint.org/docs/rules/no-prototype-builtins)
+  - [3.7](#objects--prototype-builtins) Nie wywołuj metod `Object.prototype` bezpośrednio, tak jak `hasOwnProperty`, `propertyIsEnumerable`, i `isPrototypeOf`. eslint: [`no-prototype-builtins`](https://eslint.org/docs/rules/no-prototype-builtins)
 
-    > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
+    > Czemu? Metody te mogą być zaciemnione przez właściwości danego obiektu - rozważ `{ hasOwnProperty: false }` - lub, obiekt może być obiektem null (`Object.create(null)`).
 
     ```javascript
     // bad
@@ -306,19 +306,19 @@ Other Style Guides
     ```
 
   <a name="objects--rest-spread"></a>
-  - [3.8](#objects--rest-spread) Prefer the object spread operator over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
+  - [3.8](#objects--rest-spread) Preferuj object spread operator nad [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) do obiektów shallow-copy. Użyj object rest operator, aby uzyskać nowy obiekt z pominięciem niektórych właściwości.
 
     ```javascript
-    // very bad
+    // bardzo złe
     const original = { a: 1, b: 2 };
     const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
     delete copy.a; // so does this
 
-    // bad
+    // złe
     const original = { a: 1, b: 2 };
     const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
 
-    // good
+    // dobre
     const original = { a: 1, b: 2 };
     const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
 
@@ -327,37 +327,37 @@ Other Style Guides
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Arrays
+## Tablice
 
   <a name="arrays--literals"></a><a name="4.1"></a>
-  - [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor.html)
+  - [4.1](#arrays--literals)Użyj literalnej składni do tworzenia tablicy. eslint: [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor.html)
 
     ```javascript
-    // bad
+    // złe
     const items = new Array();
 
-    // good
+    // dobre
     const items = [];
     ```
 
   <a name="arrays--push"></a><a name="4.2"></a>
-  - [4.2](#arrays--push) Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
+  - [4.2](#arrays--push) Użyj [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) zamiast bezpośredniego przypisania, aby dodać elementy do tablicy.
 
     ```javascript
     const someStack = [];
 
-    // bad
+    // złe
     someStack[someStack.length] = 'abracadabra';
 
-    // good
+    // dobre
     someStack.push('abracadabra');
     ```
 
   <a name="es6-array-spreads"></a><a name="4.3"></a>
-  - [4.3](#es6-array-spreads) Use array spreads `...` to copy arrays.
+  - [4.3](#es6-array-spreads) Użyj array spreads `...` aby kopiować tablice.
 
     ```javascript
-    // bad
+    // złe
     const len = items.length;
     const itemsCopy = [];
     let i;
@@ -366,73 +366,73 @@ Other Style Guides
       itemsCopy[i] = items[i];
     }
 
-    // good
+    // dobre
     const itemsCopy = [...items];
     ```
 
   <a name="arrays--from"></a>
   <a name="arrays--from-iterable"></a><a name="4.4"></a>
-  - [4.4](#arrays--from-iterable) To convert an iterable object to an array, use spreads `...` instead of [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+  - [4.4](#arrays--from-iterable) Aby przekonwertować obiekt iterable object na tablicę, użyj spreads `...` zamiast [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
 
-    // good
+    // dobre
     const nodes = Array.from(foo);
 
-    // best
+    // najlepsze
     const nodes = [...foo];
     ```
 
   <a name="arrays--from-array-like"></a>
-  - [4.5](#arrays--from-array-like) Use [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) for converting an array-like object to an array.
+  - [4.5](#arrays--from-array-like) Użyj [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) do konwersji obiektu podobnego do tablicy na tablicę.
 
     ```javascript
     const arrLike = { 0: 'foo', 1: 'bar', 2: 'baz', length: 3 };
 
-    // bad
+    // złe
     const arr = Array.prototype.slice.call(arrLike);
 
-    // good
+    // dobre
     const arr = Array.from(arrLike);
     ```
 
   <a name="arrays--mapping"></a>
-  - [4.6](#arrays--mapping) Use [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) instead of spread `...` for mapping over iterables, because it avoids creating an intermediate array.
+  - [4.6](#arrays--mapping) Użyj [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) zamiast spread `...` do mapowania przez iterable, ponieważ unika się tworzenia tablicy pośredniej.
 
     ```javascript
-    // bad
+    // złe
     const baz = [...foo].map(bar);
 
-    // good
+    // dobre
     const baz = Array.from(foo, bar);
     ```
 
   <a name="arrays--callback-return"></a><a name="4.5"></a>
-  - [4.7](#arrays--callback-return) Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement returning an expression without side effects, following [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](https://eslint.org/docs/rules/array-callback-return)
+  - [4.7](#arrays--callback-return) Używaj instrukcji return w wywołaniach zwrotnych metody tablicowej. Można pominąć return, jeśli treść funkcji składa się z pojedynczej instrukcji zwracającej wyrażenie bez skutków ubocznych, następująco [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](https://eslint.org/docs/rules/array-callback-return)
 
     ```javascript
-    // good
+    // dobre
     [1, 2, 3].map((x) => {
       const y = x + 1;
       return x * y;
     });
 
-    // good
+    // dobre
     [1, 2, 3].map((x) => x + 1);
 
-    // bad - no returned value means `acc` becomes undefined after the first iteration
+    // źle - brak zwracanej wartości oznacza, że `acc` staje się niezdefiniowany po pierwszej iteracji
     [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
       const flatten = acc.concat(item);
     });
 
-    // good
+    // dobre
     [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
       const flatten = acc.concat(item);
       return flatten;
     });
 
-    // bad
+    // złe
     inbox.filter((msg) => {
       const { subject, author } = msg;
       if (subject === 'Mockingbird') {
@@ -442,7 +442,7 @@ Other Style Guides
       }
     });
 
-    // good
+    // dobre
     inbox.filter((msg) => {
       const { subject, author } = msg;
       if (subject === 'Mockingbird') {
@@ -454,10 +454,10 @@ Other Style Guides
     ```
 
   <a name="arrays--bracket-newline"></a>
-  - [4.8](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines
+  - [4.8](#arrays--bracket-newline) Użyj podziałów linii po otwarciu i przed zamknięciem nawiasów tablicy, jeśli tablica ma wiele linii
 
     ```javascript
-    // bad
+    // złe
     const arr = [
       [0, 1], [2, 3], [4, 5],
     ];
@@ -472,7 +472,7 @@ Other Style Guides
       1, 2,
     ];
 
-    // good
+    // dobre
     const arr = [[0, 1], [2, 3], [4, 5]];
 
     const objectInArray = [
@@ -492,15 +492,15 @@ Other Style Guides
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Destructuring
+## Niszczenie
 
   <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
+  - [5.1](#destructuring--object) Użyj niszczenia obiektów podczas uzyskiwania dostępu do wielu właściwości obiektu i korzystania z nich. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
 
-    > Why? Destructuring saves you from creating temporary references for those properties.
+    > Czemu? Destrukturyzacja pozwala uniknąć tworzenia tymczasowych odniesień do tych właściwości.
 
     ```javascript
-    // bad
+    // złe
     function getFullName(user) {
       const firstName = user.firstName;
       const lastName = user.lastName;
@@ -508,29 +508,29 @@ Other Style Guides
       return `${firstName} ${lastName}`;
     }
 
-    // good
+    // dobre
     function getFullName(user) {
       const { firstName, lastName } = user;
       return `${firstName} ${lastName}`;
     }
 
-    // best
+    // najlepsze
     function getFullName({ firstName, lastName }) {
       return `${firstName} ${lastName}`;
     }
     ```
 
   <a name="destructuring--array"></a><a name="5.2"></a>
-  - [5.2](#destructuring--array) Use array destructuring. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
+  - [5.2](#destructuring--array) Użyj destrukturyzacji tablic. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
 
     ```javascript
     const arr = [1, 2, 3, 4];
 
-    // bad
+    // złe
     const first = arr[0];
     const second = arr[1];
 
-    // good
+    // dobre
     const [first, second] = arr;
     ```
 
@@ -3937,9 +3937,9 @@ Other Style Guides
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Translation
+## Tłumaczenie
 
-  This style guide is also available in other languages:
+  Ten przewodnik po stylach jest również dostępny w innych językach:
 
   - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
   - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
