@@ -535,167 +535,167 @@ Inne przewodniki po stylach
     ```
 
   <a name="destructuring--object-over-array"></a><a name="5.3"></a>
-  - [5.3](#destructuring--object-over-array) Use object destructuring for multiple return values, not array destructuring.
+  - [5.3](#destructuring--object-over-array) Użyj niszczenia obiektów dla wielu zwracanych wartości, a nie niszczenia tablic.
 
-    > Why? You can add new properties over time or change the order of things without breaking call sites.
+    > Czemu? Z czasem możesz dodawać nowe właściwości lub zmieniać kolejność rzeczy bez przerywania wywołań stron.
 
     ```javascript
-    // bad
+    // złe
     function processInput(input) {
       // then a miracle occurs
       return [left, right, top, bottom];
     }
 
-    // the caller needs to think about the order of return data
+    // wywołujący musi pomyśleć o kolejności danych zwrotnych
     const [left, __, top] = processInput(input);
 
-    // good
+    // dobre
     function processInput(input) {
       // then a miracle occurs
       return { left, right, top, bottom };
     }
 
-    // the caller selects only the data they need
+    // wywołujący wybiera tylko te dane, których potrzebuje
     const { left, top } = processInput(input);
     ```
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Strings
+## Stringi
 
   <a name="strings--quotes"></a><a name="6.1"></a>
-  - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html)
+  - [6.1](#strings--quotes) Używaj pojedynczych cudzysłowów `''` dla stringów. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html)
 
     ```javascript
-    // bad
+    // złe
     const name = "Capt. Janeway";
 
-    // bad - template literals should contain interpolation or newlines
+    // źle - literały szablonów powinny zawierać interpolację lub znaki nowej linii
     const name = `Capt. Janeway`;
 
-    // good
+    // dobre
     const name = 'Capt. Janeway';
     ```
 
   <a name="strings--line-length"></a><a name="6.2"></a>
-  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
+  - [6.2](#strings--line-length) Stringi które powodują, że linia przekracza 100 znaków, nie należy pisać w wielu wierszach za pomocą konkatenacji łańcuchów.
 
-    > Why? Broken strings are painful to work with and make code less searchable.
+    > Czemu? Przerwane stringi są ciężkie w pracy i sprawiają, że kod jest mniej przeszukiwalny.
 
     ```javascript
-    // bad
+    // złe
     const errorMessage = 'This is a super long error that was thrown because \
     of Batman. When you stop to think about how Batman had anything to do \
     with this, you would get nowhere \
     fast.';
 
-    // bad
+    // złe
     const errorMessage = 'This is a super long error that was thrown because ' +
       'of Batman. When you stop to think about how Batman had anything to do ' +
       'with this, you would get nowhere fast.';
 
-    // good
+    // dobre
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
     ```
 
   <a name="es6-template-literals"></a><a name="6.4"></a>
-  - [6.3](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation. eslint: [`prefer-template`](https://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](https://eslint.org/docs/rules/template-curly-spacing)
+  - [6.3](#es6-template-literals) Podczas programowego budowania stringów należy używać ciągów szablonów zamiast konkatenacji. eslint: [`prefer-template`](https://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](https://eslint.org/docs/rules/template-curly-spacing)
 
-    > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+    > Czemu? Ciągi szablonów zapewniają czytelną, zwięzłą składnię z odpowiednimi znakami nowej linii i funkcjami interpolacji ciągów.
 
     ```javascript
-    // bad
+    // złe
     function sayHi(name) {
       return 'How are you, ' + name + '?';
     }
 
-    // bad
+    // złe
     function sayHi(name) {
       return ['How are you, ', name, '?'].join();
     }
 
-    // bad
+    // złe
     function sayHi(name) {
       return `How are you, ${ name }?`;
     }
 
-    // good
+    // dobre
     function sayHi(name) {
       return `How are you, ${name}?`;
     }
     ```
 
   <a name="strings--eval"></a><a name="6.5"></a>
-  - [6.4](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities. eslint: [`no-eval`](https://eslint.org/docs/rules/no-eval)
+  - [6.4](#strings--eval) Nigdy nie używaj `eval()` na stringa, otwiera zbyt wiele luk w zabezpieczeniach. eslint: [`no-eval`](https://eslint.org/docs/rules/no-eval)
 
   <a name="strings--escaping"></a>
   - [6.5](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](https://eslint.org/docs/rules/no-useless-escape)
 
-    > Why? Backslashes harm readability, thus they should only be present when necessary.
+    > Czemu? Ukośniki odwrotne szkodzą czytelności, dlatego powinny być obecne tylko wtedy, gdy jest to konieczne.
 
     ```javascript
-    // bad
+    // złe
     const foo = '\'this\' \i\s \"quoted\"';
 
-    // good
+    // dobre
     const foo = '\'this\' is "quoted"';
     const foo = `my name is '${name}'`;
     ```
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Functions
+## Funkcje
 
   <a name="functions--declarations"></a><a name="7.1"></a>
-  - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](https://eslint.org/docs/rules/func-style)
+  - [7.1](#functions--declarations) Użyj nazwanych wyrażeń funkcyjnych zamiast deklaracji funkcji. eslint: [`func-style`](https://eslint.org/docs/rules/func-style)
 
-    > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to explicitly name the expression, regardless of whether or not the name is inferred from the containing variable (which is often the case in modern browsers or when using compilers such as Babel). This eliminates any assumptions made about the Error’s call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
+    > Czemu? Deklaracje funkcji są hoisted, co oznacza, że łatwo - zbyt łatwo - odwołać się do funkcji, zanim zostanie zdefiniowana w pliku. Utrudnia to czytelność i łatwość konserwacji. Jeśli okaże się, że definicja funkcji jest na tyle duża lub wystarczająco złożona, że zakłóca zrozumienie reszty pliku, być może nadszedł czas, aby wyodrębnić ją do własnego modułu! Nie zapomnij wyraźnie nazwać wyrażenia, niezależnie od tego, czy nazwa jest wywnioskowana ze zmiennej zawierającej (co często ma miejsce w nowoczesnych przeglądarkach lub podczas korzystania z kompilatorów takich jak Babel). Eliminuje to wszelkie założenia dotyczące stosu wywołań błędu. ([Discussion](https://github.com/airbnb/javascript/issues/794))
 
     ```javascript
-    // bad
+    // złe
     function foo() {
       // ...
     }
 
-    // bad
+    // złe
     const foo = function () {
       // ...
     };
 
-    // good
-    // lexical name distinguished from the variable-referenced invocation(s)
+    // dobre
+    // nazwa leksykalna odróżniona od wywołania (odwołań)
     const short = function longUniqueMoreDescriptiveLexicalFoo() {
       // ...
     };
     ```
 
   <a name="functions--iife"></a><a name="7.2"></a>
-  - [7.2](#functions--iife) Wrap immediately invoked function expressions in parentheses. eslint: [`wrap-iife`](https://eslint.org/docs/rules/wrap-iife.html)
+  - [7.2](#functions--iife) Zawiń natychmiast wywołane wyrażenia funkcyjne w nawiasach. eslint: [`wrap-iife`](https://eslint.org/docs/rules/wrap-iife.html)
 
     > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
 
     ```javascript
-    // immediately-invoked function expression (IIFE)
+    // natychmiast wywoływane wyrażenie funkcyjne (IIFE)
     (function () {
       console.log('Welcome to the Internet. Please follow me.');
     }());
     ```
 
   <a name="functions--in-blocks"></a><a name="7.3"></a>
-  - [7.3](#functions--in-blocks) Never declare a function in a non-function block (`if`, `while`, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](https://eslint.org/docs/rules/no-loop-func.html)
+  - [7.3](#functions--in-blocks) Nigdy nie deklaruj funkcji w bloku niefunkcyjnym (`if`, `while`, etc). Zamiast tego przypisz funkcję do zmiennej. Przeglądarki pozwolą ci to zrobić, ale wszystkie interpretują to inaczej, co jest złą wiadomością. eslint: [`no-loop-func`](https://eslint.org/docs/rules/no-loop-func.html)
 
   <a name="functions--note-on-blocks"></a><a name="7.4"></a>
-  - [7.4](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement.
+  - [7.4](#functions--note-on-blocks) **Uwaga:** ECMA-262 definiuje `block` jako listę instrukcji. Deklaracja funkcji nie jest instrukcją.
 
     ```javascript
-    // bad
+    // złe
     if (currentUser) {
       function test() {
         console.log('Nope.');
       }
     }
 
-    // good
+    // dobre
     let test;
     if (currentUser) {
       test = () => {
@@ -705,43 +705,43 @@ Inne przewodniki po stylach
     ```
 
   <a name="functions--arguments-shadow"></a><a name="7.5"></a>
-  - [7.5](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+    - [7.5](#functions--arguments-shadow) Nigdy nie nazywaj parametru `arguments`. Będzie to miało pierwszeństwo przed obiektem `arguments`, który jest nadawany każdemu zakresowi funkcji.
 
     ```javascript
-    // bad
+    // złe
     function foo(name, options, arguments) {
       // ...
     }
 
-    // good
+    // dobre
     function foo(name, options, args) {
       // ...
     }
     ```
 
   <a name="es6-rest"></a><a name="7.6"></a>
-  - [7.6](#es6-rest) Never use `arguments`, opt to use rest syntax `...` instead. eslint: [`prefer-rest-params`](https://eslint.org/docs/rules/prefer-rest-params)
+  - [7.6](#es6-rest) Nigdy nie używaj `arguments`, zdecyduj się zamiast tego na użycie składni rest syntax `...`. eslint: [`prefer-rest-params`](https://eslint.org/docs/rules/prefer-rest-params)
 
-    > Why? `...` is explicit about which arguments you want pulled. Plus, rest arguments are a real Array, and not merely Array-like like `arguments`.
+    > Czemu? `...` wyraźnie określa, które argumenty chcesz wyciągnąć. Dodatkowo, argumenty rest są prawdziwym Array, a nie tylko podobne do Array jak `arguments`.
 
     ```javascript
-    // bad
+    // złe
     function concatenateAll() {
       const args = Array.prototype.slice.call(arguments);
       return args.join('');
     }
 
-    // good
+    // dobre
     function concatenateAll(...args) {
       return args.join('');
     }
     ```
 
   <a name="es6-default-parameters"></a><a name="7.7"></a>
-  - [7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
+  - [7.7](#es6-default-parameters) Użyj domyślnej składni parametrów zamiast mutować argumenty funkcji.
 
     ```javascript
-    // really bad
+    // naprawdę źle
     function handleThings(opts) {
       // No! We shouldn’t mutate function arguments.
       // Double bad: if opts is falsy it'll be set to an object which may
@@ -750,7 +750,7 @@ Inne przewodniki po stylach
       // ...
     }
 
-    // still bad
+    // dalej źle
     function handleThings(opts) {
       if (opts === void 0) {
         opts = {};
@@ -758,20 +758,20 @@ Inne przewodniki po stylach
       // ...
     }
 
-    // good
+    // dobrze
     function handleThings(opts = {}) {
       // ...
     }
     ```
 
   <a name="functions--default-side-effects"></a><a name="7.8"></a>
-  - [7.8](#functions--default-side-effects) Avoid side effects with default parameters.
+  - [7.8](#functions--default-side-effects) Unikaj efektów ubocznych przy domyślnych parametrach.
 
-    > Why? They are confusing to reason about.
+    > Czemu? Są mylące.
 
     ```javascript
     var b = 1;
-    // bad
+    // złe
     function count(a = b++) {
       console.log(a);
     }
@@ -782,73 +782,73 @@ Inne przewodniki po stylach
     ```
 
   <a name="functions--defaults-last"></a><a name="7.9"></a>
-  - [7.9](#functions--defaults-last) Always put default parameters last.
+  - [7.9](#functions--defaults-last) Zawsze umieszczaj parametry domyślne na końcu.
 
     ```javascript
-    // bad
+    // złe
     function handleThings(opts = {}, name) {
       // ...
     }
 
-    // good
+    // dobre
     function handleThings(name, opts = {}) {
       // ...
     }
     ```
 
   <a name="functions--constructor"></a><a name="7.10"></a>
-  - [7.10](#functions--constructor) Never use the Function constructor to create a new function. eslint: [`no-new-func`](https://eslint.org/docs/rules/no-new-func)
+  - [7.10](#functions--constructor) Nigdy nie używaj konstruktora funkcji do tworzenia nowej funkcji. eslint: [`no-new-func`](https://eslint.org/docs/rules/no-new-func)
 
-    > Why? Creating a function in this way evaluates a string similarly to `eval()`, which opens vulnerabilities.
+    > Czemu? Utworzenie funkcji w ten sposób ocenia ciąg podobny do `eval()`, który otwiera luki w zabezpieczeniach.
 
     ```javascript
-    // bad
+    // złe
     var add = new Function('a', 'b', 'return a + b');
 
-    // still bad
+    // dalej złe
     var subtract = Function('a', 'b', 'return a - b');
     ```
 
   <a name="functions--signature-spacing"></a><a name="7.11"></a>
-  - [7.11](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
+  - [7.11](#functions--signature-spacing) Odstępy w podpisie funkcji. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
 
-    > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
+    > Czemu? Spójność jest dobra i nie trzeba dodawać ani usuwać spacji podczas dodawania lub usuwania nazwy.
 
     ```javascript
-    // bad
+    // złe
     const f = function(){};
     const g = function (){};
     const h = function() {};
 
-    // good
+    // dobre
     const x = function () {};
     const y = function a() {};
     ```
 
   <a name="functions--mutate-params"></a><a name="7.12"></a>
-  - [7.12](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.12](#functions--mutate-params) Nigdy nie mutuj parametrów. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+    > Czemu? Manipulowanie obiektami przekazywanymi jako parametry może powodować niepożądane zmienne skutki uboczne w pierwotnym obiekcie wywołującym.
 
     ```javascript
-    // bad
+    // złe
     function f1(obj) {
       obj.key = 1;
     }
 
-    // good
+    // dobre
     function f2(obj) {
       const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
     }
     ```
 
   <a name="functions--reassign-params"></a><a name="7.13"></a>
-  - [7.13](#functions--reassign-params) Never reassign parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.13](#functions--reassign-params) Nigdy nie przypisuj ponownie parametrów. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
+    > Czemu? Ponowne przypisanie parametrów może prowadzić do nieoczekiwanego zachowania, szczególnie podczas uzyskiwania dostępu do obiektu `arguments`. Może to również powodować problemy z optymalizacją, szczególnie w wersji V8.
 
     ```javascript
-    // bad
+    // złe
     function f1(a) {
       a = 1;
       // ...
@@ -859,7 +859,7 @@ Inne przewodniki po stylach
       // ...
     }
 
-    // good
+    // dobre
     function f3(a) {
       const b = a || 1;
       // ...
@@ -871,38 +871,38 @@ Inne przewodniki po stylach
     ```
 
   <a name="functions--spread-vs-apply"></a><a name="7.14"></a>
-  - [7.14](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. eslint: [`prefer-spread`](https://eslint.org/docs/rules/prefer-spread)
+  - [7.14](#functions--spread-vs-apply) Preferuj uzycie operatora spread operator `...` aby wywoływać funkcje variadic. eslint: [`prefer-spread`](https://eslint.org/docs/rules/prefer-spread)
 
-    > Why? It’s cleaner, you don’t need to supply a context, and you can not easily compose `new` with `apply`.
+    > Czemu? Jest czyściej, nie musisz podawać kontekstu i nie możesz łatwo składać `new` z `apply`.
 
     ```javascript
-    // bad
+    // złe
     const x = [1, 2, 3, 4, 5];
     console.log.apply(console, x);
 
-    // good
+    // dobre
     const x = [1, 2, 3, 4, 5];
     console.log(...x);
 
-    // bad
+    // dobre
     new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
 
-    // good
+    // dobre
     new Date(...[2016, 8, 5]);
     ```
 
   <a name="functions--signature-invocation-indentation"></a>
-  - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item. eslint: [`function-paren-newline`](https://eslint.org/docs/rules/function-paren-newline)
+  - [7.15](#functions--signature-invocation-indentation) Funkcje z podpisami wielowierszowymi lub wywołaniami powinny być wcięte, tak jak każda inna lista wielowierszowa w tym przewodniku: każdy element w linii sam, z końcowym przecinkiem na ostatnim elemencie. eslint: [`function-paren-newline`](https://eslint.org/docs/rules/function-paren-newline)
 
     ```javascript
-    // bad
+    // złe
     function foo(bar,
                  baz,
                  quux) {
       // ...
     }
 
-    // good
+    // dobre
     function foo(
       bar,
       baz,
@@ -911,12 +911,12 @@ Inne przewodniki po stylach
       // ...
     }
 
-    // bad
+    // złe
     console.log(foo,
       bar,
       baz);
 
-    // good
+    // dobre
     console.log(
       foo,
       bar,
@@ -926,23 +926,23 @@ Inne przewodniki po stylach
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Arrow Functions
+## Funkcje strzałkowe
 
   <a name="arrows--use-them"></a><a name="8.1"></a>
-  - [8.1](#arrows--use-them) When you must use an anonymous function (as when passing an inline callback), use arrow function notation. eslint: [`prefer-arrow-callback`](https://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](https://eslint.org/docs/rules/arrow-spacing.html)
+  - [8.1](#arrows--use-them) Gdy musisz użyć funkcji anonimowej (tak jak przy przekazywaniu inline callback), użyj notacji funkcji strzałek. eslint: [`prefer-arrow-callback`](https://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](https://eslint.org/docs/rules/arrow-spacing.html)
 
-    > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
+    > Czemu? Tworzy wersję funkcji, która działa w kontekście `this`, która jest zwykle tym, czego chcesz, i jest bardziej zwięzłą składnią.
 
-    > Why not? If you have a fairly complicated function, you might move that logic out into its own named function expression.
+    > Dlaczego nie? Jeśli masz dość skomplikowaną funkcję, możesz przenieść tę logikę do własnego nazwanego wyrażenia funkcji.
 
     ```javascript
-    // bad
+    // złe
     [1, 2, 3].map(function (x) {
       const y = x + 1;
       return x * y;
     });
 
-    // good
+    // dobre
     [1, 2, 3].map((x) => {
       const y = x + 1;
       return x * y;
@@ -950,27 +950,27 @@ Inne przewodniki po stylach
     ```
 
   <a name="arrows--implicit-return"></a><a name="8.2"></a>
-  - [8.2](#arrows--implicit-return) If the function body consists of a single statement returning an [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) without side effects, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](https://eslint.org/docs/rules/arrow-body-style.html)
+  - [8.2](#arrows--implicit-return) Jeśli ciało funkcji składa się z pojedynczej instrukcji zwracającej [wyrażenie](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions)bez skutków ubocznych, pomiń nawiasy klamrowe i użyj domyślnego return. W przeciwnym razie zachowaj nawiasy klamrowe i użyj instrukcji `return`. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](https://eslint.org/docs/rules/arrow-body-style.html)
 
-    > Why? Syntactic sugar. It reads well when multiple functions are chained together.
+    > Czemu? Czystość kodu. Czyta się dobrze, gdy połączonych jest wiele funkcji.
 
     ```javascript
-    // bad
+    // złe
     [1, 2, 3].map((number) => {
       const nextNumber = number + 1;
       `A string containing the ${nextNumber}.`;
     });
 
-    // good
+    // dobre
     [1, 2, 3].map((number) => `A string containing the ${number + 1}.`);
 
-    // good
+    // dobre
     [1, 2, 3].map((number) => {
       const nextNumber = number + 1;
       return `A string containing the ${nextNumber}.`;
     });
 
-    // good
+    // dobre
     [1, 2, 3].map((number, index) => ({
       [index]: number,
     }));
@@ -985,29 +985,29 @@ Inne przewodniki po stylach
 
     let bool = false;
 
-    // bad
+    // złe
     foo(() => bool = true);
 
-    // good
+    // dobre
     foo(() => {
       bool = true;
     });
     ```
 
   <a name="arrows--paren-wrap"></a><a name="8.3"></a>
-  - [8.3](#arrows--paren-wrap) In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+  - [8.3](#arrows--paren-wrap) W przypadku gdy wyrażenie obejmuje wiele wierszy, zawiń je w nawiasach, aby uzyskać lepszą czytelność.
 
-    > Why? It shows clearly where the function starts and ends.
+    > Czemu? Pokazuje wyraźnie, gdzie funkcja zaczyna się i kończy.
 
     ```javascript
-    // bad
+    // złe
     ['get', 'post', 'put'].map((httpMethod) => Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
         httpMethod,
       )
     );
 
-    // good
+    // dobre
     ['get', 'post', 'put'].map((httpMethod) => (
       Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
@@ -1017,34 +1017,34 @@ Inne przewodniki po stylach
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) Always include parentheses around arguments for clarity and consistency. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html)
+  - [8.4](#arrows--one-arg-parens) Zawsze dołączaj nawiasy wokół argumentów dla jasności i spójności. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html)
 
-    > Why? Minimizes diff churn when adding or removing arguments.
+    > Czemu? Minimalizuje rezygnację z różnic podczas dodawania lub usuwania argumentów.
 
     ```javascript
-    // bad
+    // złe
     [1, 2, 3].map(x => x * x);
 
-    // good
+    // dobre
     [1, 2, 3].map((x) => x * x);
 
-    // bad
+    // złe
     [1, 2, 3].map(number => (
       `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
     ));
 
-    // good
+    // dobre
     [1, 2, 3].map((number) => (
       `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
     ));
 
-    // bad
+    // złe
     [1, 2, 3].map(x => {
       const y = x + 1;
       return x * y;
     });
 
-    // good
+    // dobre
     [1, 2, 3].map((x) => {
       const y = x + 1;
       return x * y;
@@ -1052,19 +1052,19 @@ Inne przewodniki po stylach
     ```
 
   <a name="arrows--confusing"></a><a name="8.5"></a>
-  - [8.5](#arrows--confusing) Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`). eslint: [`no-confusing-arrow`](https://eslint.org/docs/rules/no-confusing-arrow)
+  - [8.5](#arrows--confusing) Unikaj mylącej składni funkcji strzałek (`=>`) z operatorami porównania (`<=`, `>=`). eslint: [`no-confusing-arrow`](https://eslint.org/docs/rules/no-confusing-arrow)
 
     ```javascript
-    // bad
+    // złe
     const itemHeight = (item) => item.height <= 256 ? item.largeSize : item.smallSize;
 
-    // bad
+    // złe
     const itemHeight = (item) => item.height >= 256 ? item.largeSize : item.smallSize;
 
-    // good
+    // dobre
     const itemHeight = (item) => (item.height <= 256 ? item.largeSize : item.smallSize);
 
-    // good
+    // dobre
     const itemHeight = (item) => {
       const { height, largeSize, smallSize } = item;
       return height <= 256 ? largeSize : smallSize;
@@ -1072,17 +1072,17 @@ Inne przewodniki po stylach
     ```
 
   <a name="whitespace--implicit-arrow-linebreak"></a>
-  - [8.6](#whitespace--implicit-arrow-linebreak) Enforce the location of arrow function bodies with implicit returns. eslint: [`implicit-arrow-linebreak`](https://eslint.org/docs/rules/implicit-arrow-linebreak)
+  - [8.6](#whitespace--implicit-arrow-linebreak) Wymuszaj lokalizację obiektów funkcji strzałek za pomocą niejawnych zwrotów. eslint: [`implicit-arrow-linebreak`](https://eslint.org/docs/rules/implicit-arrow-linebreak)
 
     ```javascript
-    // bad
+    // złe
     (foo) =>
       bar;
 
     (foo) =>
       (bar);
 
-    // good
+    // dobre
     (foo) => bar;
     (foo) => (bar);
     (foo) => (
@@ -1092,15 +1092,15 @@ Inne przewodniki po stylach
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Classes & Constructors
+## Klasy i konstruktory
 
   <a name="constructors--use-class"></a><a name="9.1"></a>
-  - [9.1](#constructors--use-class) Always use `class`. Avoid manipulating `prototype` directly.
+  - [9.1](#constructors--use-class) Zawsze używaj `class`. Unikaj bezpośredniego manipulowania `prototype`.
 
-    > Why? `class` syntax is more concise and easier to reason about.
+    > Czemu? Składnia `class` jest bardziej zwięzła i łatwiejsza do uzasadnienia.
 
     ```javascript
-    // bad
+    // złe
     function Queue(contents = []) {
       this.queue = [...contents];
     }
@@ -1110,7 +1110,7 @@ Inne przewodniki po stylach
       return value;
     };
 
-    // good
+    // dobre
     class Queue {
       constructor(contents = []) {
         this.queue = [...contents];
@@ -1124,12 +1124,12 @@ Inne przewodniki po stylach
     ```
 
   <a name="constructors--extends"></a><a name="9.2"></a>
-  - [9.2](#constructors--extends) Use `extends` for inheritance.
+  - [9.2](#constructors--extends) Użyj `extends` do dziedziczenia.
 
-    > Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
+    > Czemu? Jest to wbudowany sposób na dziedziczenie prototypowej funkcjonalności bez przerywania `instanceof`.
 
     ```javascript
-    // bad
+    // złe
     const inherits = require('inherits');
     function PeekableQueue(contents) {
       Queue.apply(this, contents);
@@ -1139,7 +1139,7 @@ Inne przewodniki po stylach
       return this.queue[0];
     };
 
-    // good
+    // dobre
     class PeekableQueue extends Queue {
       peek() {
         return this.queue[0];
@@ -1148,10 +1148,10 @@ Inne przewodniki po stylach
     ```
 
   <a name="constructors--chaining"></a><a name="9.3"></a>
-  - [9.3](#constructors--chaining) Methods can return `this` to help with method chaining.
+  - [9.3](#constructors--chaining) Metody mogą zwracać wartość `this`, aby pomóc w tworzeniu łańcuchów metod.
 
     ```javascript
-    // bad
+    // złe
     Jedi.prototype.jump = function () {
       this.jumping = true;
       return true;
@@ -1165,7 +1165,7 @@ Inne przewodniki po stylach
     luke.jump(); // => true
     luke.setHeight(20); // => undefined
 
-    // good
+    // dobre
     class Jedi {
       jump() {
         this.jumping = true;
@@ -1185,7 +1185,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="constructors--tostring"></a><a name="9.4"></a>
-  - [9.4](#constructors--tostring) It’s okay to write a custom `toString()` method, just make sure it works successfully and causes no side effects.
+  - [9.4](#constructors--tostring) Można napisać niestandardową metodę `toString()`, upewnij się tylko, że działa ona skutecznie i nie powoduje żadnych skutków ubocznych.
 
     ```javascript
     class Jedi {
@@ -1204,10 +1204,10 @@ Inne przewodniki po stylach
     ```
 
   <a name="constructors--no-useless"></a><a name="9.5"></a>
-  - [9.5](#constructors--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. eslint: [`no-useless-constructor`](https://eslint.org/docs/rules/no-useless-constructor)
+  - [9.5](#constructors--no-useless) Klasy mają domyślny konstruktor, jeśli nie został określony. Pusta funkcja konstruktora lub taka, która po prostu deleguje do klasy nadrzędnej, nie jest potrzebna. eslint: [`no-useless-constructor`](https://eslint.org/docs/rules/no-useless-constructor)
 
     ```javascript
-    // bad
+    // złe
     class Jedi {
       constructor() {}
 
@@ -1216,14 +1216,14 @@ Inne przewodniki po stylach
       }
     }
 
-    // bad
+    // złe
     class Rey extends Jedi {
       constructor(...args) {
         super(...args);
       }
     }
 
-    // good
+    // dobre
     class Rey extends Jedi {
       constructor(...args) {
         super(...args);
@@ -1233,54 +1233,54 @@ Inne przewodniki po stylach
     ```
 
   <a name="classes--no-duplicate-members"></a>
-  - [9.6](#classes--no-duplicate-members) Avoid duplicate class members. eslint: [`no-dupe-class-members`](https://eslint.org/docs/rules/no-dupe-class-members)
+  - [9.6](#classes--no-duplicate-members) Unikaj zduplikowanych członków klasy. eslint: [`no-dupe-class-members`](https://eslint.org/docs/rules/no-dupe-class-members)
 
-    > Why? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
+    > Czemu? Zduplikowane deklaracje członków klasy po cichu wolą ostatnią - posiadanie duplikatów jest prawie na pewno błędem.
 
     ```javascript
-    // bad
+    // złe
     class Foo {
       bar() { return 1; }
       bar() { return 2; }
     }
 
-    // good
+    // dobre
     class Foo {
       bar() { return 1; }
     }
 
-    // good
+    // dobre
     class Foo {
       bar() { return 2; }
     }
     ```
 
   <a name="classes--methods-use-this"></a>
-  - [9.7](#classes--methods-use-this) Class methods should use `this` or be made into a static method unless an external library or framework requires to use specific non-static methods. Being an instance method should indicate that it behaves differently based on properties of the receiver. eslint: [`class-methods-use-this`](https://eslint.org/docs/rules/class-methods-use-this)
+  - [9.7](#classes--methods-use-this) Metody klas powinny używać `this` lub zostać przekształcone w metodę statyczną, chyba że zewnętrzna biblioteka lub środowisko wymaga użycia określonych metod niestatycznych. Jako metoda instancji powinna wskazywać, że zachowuje się inaczej w zależności od właściwości receivera. eslint: [`class-methods-use-this`](https://eslint.org/docs/rules/class-methods-use-this)
 
     ```javascript
-    // bad
+    // złe
     class Foo {
       bar() {
         console.log('bar');
       }
     }
 
-    // good - this is used
+    // dobrze - jest używane
     class Foo {
       bar() {
         console.log(this.bar);
       }
     }
 
-    // good - constructor is exempt
+    // dobrze - konstruktor jest zwolniony
     class Foo {
       constructor() {
         // ...
       }
     }
 
-    // good - static methods aren't expected to use this
+    // dobrze - metody statyczne nie powinny z tego korzystać
     class Foo {
       static bar() {
         console.log('bar');
@@ -1290,15 +1290,15 @@ Inne przewodniki po stylach
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Modules
+## Moduły
 
   <a name="modules--use-them"></a><a name="10.1"></a>
-  - [10.1](#modules--use-them) Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
+  - [10.1](#modules--use-them) Zawsze używaj modułów (`import`/`export`) przez niestandardowy system modułowy. Zawsze możesz dokonać transpilacji do preferowanego systemu modułów.
 
-    > Why? Modules are the future, let’s start using the future now.
+    > Czemu? Moduły są przyszłością, zacznijmy korzystać z przyszłości już teraz.
 
     ```javascript
-    // bad
+    // złe
     const AirbnbStyleGuide = require('./AirbnbStyleGuide');
     module.exports = AirbnbStyleGuide.es6;
 
@@ -1306,35 +1306,35 @@ Inne przewodniki po stylach
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     export default AirbnbStyleGuide.es6;
 
-    // best
+    // najlepsze
     import { es6 } from './AirbnbStyleGuide';
     export default es6;
     ```
 
   <a name="modules--no-wildcard"></a><a name="10.2"></a>
-  - [10.2](#modules--no-wildcard) Do not use wildcard imports.
+  - [10.2](#modules--no-wildcard) Nie używaj wildcard imports.
 
-    > Why? This makes sure you have a single default export.
+    > Czemu? Dzięki temu masz tylko jeden domyślny eksport.
 
     ```javascript
-    // bad
+    // złe
     import * as AirbnbStyleGuide from './AirbnbStyleGuide';
 
-    // good
+    // dobre
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     ```
 
   <a name="modules--no-export-from-import"></a><a name="10.3"></a>
-  - [10.3](#modules--no-export-from-import) And do not export directly from an import.
+  - [10.3](#modules--no-export-from-import) I nie eksportuj bezpośrednio z importu.
 
-    > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
+    > Czemu? Chociaż one-liner jest zwięzły, posiadanie jednego jasnego sposobu importowania i jednego jasnego sposobu eksportowania zapewnia spójność.
 
     ```javascript
-    // bad
+    // złe
     // filename es6.js
     export { es6 as default } from './AirbnbStyleGuide';
 
-    // good
+    // dobre
     // filename es6.js
     import { es6 } from './AirbnbStyleGuide';
     export default es6;
