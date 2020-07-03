@@ -20,21 +20,21 @@ Inne przewodniki po stylach
 
 ## Spis treści
 
-  1. [Typy](#types)
-  1. [References](#references)
-  1. [Objects](#objects)
-  1. [Arrays](#arrays)
-  1. [Destructuring](#destructuring)
-  1. [Strings](#strings)
-  1. [Functions](#functions)
-  1. [Arrow Functions](#arrow-functions)
-  1. [Classes & Constructors](#classes--constructors)
-  1. [Modules](#modules)
-  1. [Iterators and Generators](#iterators-and-generators)
-  1. [Properties](#properties)
-  1. [Variables](#variables)
+  1. [Typy](#typy)
+  1. [Referencje](#referencje)
+  1. [Obiekty](#obiekty)
+  1. [Tablice](#tablice)
+  1. [Destrukturyzacja](#destrukturyzacja)
+  1. [Stringi](#stringi)
+  1. [Funkcje](#funkcje)
+  1. [Funkcje strzałkowe](#funkcje-strzałkowe)
+  1. [Klasy & konstruktory](#klasy--konstruktory)
+  1. [Moduły](#moduły)
+  1. [Iteratory i generatory](#iteratory-i-generatory)
+  1. [Właściwości](#właściwości)
+  1. [Zmienne](#zmienne)
   1. [Hoisting](#hoisting)
-  1. [Comparison Operators & Equality](#comparison-operators--equality)
+  1. [Operatory porównania i równości](#operatory-porównania-i-równości)
   1. [Blocks](#blocks)
   1. [Control Statements](#control-statements)
   1. [Comments](#comments)
@@ -492,10 +492,10 @@ Inne przewodniki po stylach
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Niszczenie
+## Destrukturyzacja
 
   <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) Użyj niszczenia obiektów podczas uzyskiwania dostępu do wielu właściwości obiektu i korzystania z nich. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
+  - [5.1](#destructuring--object) Użyj destrukturyzacji obiektów podczas uzyskiwania dostępu do wielu właściwości obiektu i korzystania z nich. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
 
     > Czemu? Destrukturyzacja pozwala uniknąć tworzenia tymczasowych odniesień do tych właściwości.
 
