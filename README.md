@@ -35,27 +35,27 @@ Inne przewodniki po stylach
   1. [Zmienne](#zmienne)
   1. [Hoisting](#hoisting)
   1. [Operatory porównania i równości](#operatory-porównania-i-równości)
-  1. [Blocks](#blocks)
+  1. [Bloki](#bloki)
   1. [Control Statements](#control-statements)
-  1. [Comments](#comments)
-  1. [Whitespace](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
+  1. [Komentarze](#komentarze)
+  1. [Białe znaki](#białe-znaki)
+  1. [Przecinki](#przecinki)
+  1. [Średniki](#średniki)
   1. [Type Casting & Coercion](#type-casting--coercion)
-  1. [Naming Conventions](#naming-conventions)
-  1. [Accessors](#accessors)
-  1. [Events](#events)
+  1. [Konwencje nazewnictwa](#konwencje-nazewnictwa)
+  1. [Akcesory](#akcesory)
+  1. [Zdarzenia](#zdarzenia)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
   1. [Standard Library](#standard-library)
   1. [Testowanie](#testowanie)
   1. [Wydajność](#wydajność)
-  1. [Resources](#resources)
+  1. [Materiały](#materiały)
   1. [In the Wild](#in-the-wild)
   1. [Tłumaczenie](#tłumaczenie)
   1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
-  1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
+  1. [Chatuj z nami na temat JavaScript](#chatuj-z-nami-na-temat-javascript)
   1. [Współtwórcy](#współtwórcy)
   1. [Licencja](#licencja)
   1. [Poprawki](#poprawki)
@@ -2466,7 +2466,7 @@ Inne przewodniki po stylach
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Białe spacje
+## Białe znaki
 
   <a name="whitespace--spaces"></a><a name="18.1"></a>
   - [19.1](#whitespace--spaces) Użyj miękkich tabulatorów (spacji) ustawionych na 2 spacje. eslint: [`indent`](https://eslint.org/docs/rules/indent.html)
@@ -3467,7 +3467,7 @@ Inne przewodniki po stylach
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Accessors
+## Akcesory
 
   <a name="accessors--not-required"></a><a name="23.1"></a>
   - [24.1](#accessors--not-required) Accessor functions for properties are not required.
@@ -3536,7 +3536,7 @@ Inne przewodniki po stylach
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Events
+## Zdarzenia
 
   <a name="events--hash"></a><a name="24.1"></a>
   - [25.1](#events--hash) When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass an object literal (also known as a "hash") instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
@@ -3649,20 +3649,20 @@ Inne przewodniki po stylach
   <a name="es6-styles"></a><a name="27.1"></a>
   - [28.1](#es6-styles) This is a collection of links to the various ES6+ features.
 
-1. [Arrow Functions](#arrow-functions)
-1. [Classes](#classes--constructors)
+1. [Funkcje strzałkowe](#funkcje-strzałkowe)
+1. [Klasy](#klasy--konstruktory)
 1. [Object Shorthand](#es6-object-shorthand)
 1. [Object Concise](#es6-object-concise)
 1. [Object Computed Properties](#es6-computed-properties)
 1. [Template Strings](#es6-template-literals)
-1. [Destructuring](#destructuring)
+1. [Destrukturyzacja](#destrukturyzacja)
 1. [Default Parameters](#es6-default-parameters)
 1. [Rest](#es6-rest)
 1. [Array Spreads](#es6-array-spreads)
-1. [Let and Const](#references)
+1. [Let and Const](#referencje)
 1. [Exponentiation Operator](#es2016-properties--exponentiation-operator)
-1. [Iterators and Generators](#iterators-and-generators)
-1. [Modules](#modules)
+1. [Iteratory i generatory](#iteratory-i-generatory)
+1. [Moduły](#moduły)
 
   <a name="tc39-proposals"></a>
   - [28.2](#tc39-proposals) Do not use [TC39 proposals](https://github.com/tc39/proposals) that have not reached stage 3.
@@ -3747,16 +3747,16 @@ Inne przewodniki po stylach
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Resources
+## Materiały
 
-**Learning ES6+**
+**Nauka ES6+**
 
   - [Latest ECMA spec](https://tc39.github.io/ecma262/)
   - [ExploringJS](http://exploringjs.com/)
   - [ES6 Compatibility Table](https://kangax.github.io/compat-table/es6/)
   - [Comprehensive Overview of ES6 Features](http://es6-features.org/)
 
-**Read This**
+**Przeczytaj**
 
   - [Standard ECMA-262](http://www.ecma-international.org/ecma-262/6.0/index.html)
 
@@ -3767,7 +3767,7 @@ Inne przewodniki po stylach
     - [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/.jshintrc)
   - Neutrino Preset - [@neutrinojs/airbnb](https://neutrinojs.org/packages/airbnb/)
 
-**Other Style Guides**
+**Inne przewodniki po stylach**
 
   - [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
   - [Google JavaScript Style Guide (Old)](https://google.github.io/styleguide/javascriptguide.xml)
@@ -3775,7 +3775,7 @@ Inne przewodniki po stylach
   - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwaldron/idiomatic.js)
   - [StandardJS](https://standardjs.com)
 
-**Other Styles**
+**Inne style**
 
   - [Naming this in nested functions](https://gist.github.com/cjohansen/4135065) - Christian Johansen
   - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) - Ross Allen
@@ -3794,17 +3794,17 @@ Inne przewodniki po stylach
 
   - [JavaScript: The Good Parts](https://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
   - [JavaScript Patterns](https://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
-  - [Pro JavaScript Design Patterns](https://www.amazon.com/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X) - Ross Harmes and Dustin Diaz
+  - [Pro JavaScript Design Patterns](https://www.amazon.com/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X) - Ross Harmes oraz Dustin Diaz
   - [High Performance Web Sites: Essential Knowledge for Front-End Engineers](https://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309) - Steve Souders
   - [Maintainable JavaScript](https://www.amazon.com/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680) - Nicholas C. Zakas
   - [JavaScript Web Applications](https://www.amazon.com/JavaScript-Web-Applications-Alex-MacCaw/dp/144930351X) - Alex MacCaw
   - [Pro JavaScript Techniques](https://www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273) - John Resig
   - [Smashing Node.js: JavaScript Everywhere](https://www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595) - Guillermo Rauch
-  - [Secrets of the JavaScript Ninja](https://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X) - John Resig and Bear Bibeault
+  - [Secrets of the JavaScript Ninja](https://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X) - John Resig oraz Bear Bibeault
   - [Human JavaScript](http://humanjavascript.com/) - Henrik Joreteg
   - [Superhero.js](http://superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
   - [JSBooks](http://jsbooks.revolunet.com/) - Julien Bouquillon
-  - [Third Party JavaScript](https://www.manning.com/books/third-party-javascript) - Ben Vinegar and Anton Kovalyov
+  - [Third Party JavaScript](https://www.manning.com/books/third-party-javascript) - Ben Vinegar oraz Anton Kovalyov
   - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](http://amzn.com/0321812182) - David Herman
   - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke
   - [You Don’t Know JS: ES6 & Beyond](http://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson
@@ -3830,7 +3830,7 @@ Inne przewodniki po stylach
 
 ## In the Wild
 
-  This is a list of organizations that are using this style guide. Send us a pull request and we'll add you to the list.
+  To jest lista organizacji korzystających z tego przewodnika stylu. Stwórz PR, a my dodamy cię do listy.
 
   - **123erfasst**: [123erfasst/javascript](https://github.com/123erfasst/javascript)
   - **3blades**: [3Blades](https://github.com/3blades)
