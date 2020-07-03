@@ -49,16 +49,16 @@ Inne przewodniki po stylach
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
   1. [Standard Library](#standard-library)
-  1. [Testowanie](#testing)
-  1. [Wydajność](#performance)
+  1. [Testowanie](#testowanie)
+  1. [Wydajność](#wydajność)
   1. [Resources](#resources)
   1. [In the Wild](#in-the-wild)
-  1. [Tłumaczenie](#translation)
+  1. [Tłumaczenie](#tłumaczenie)
   1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
   1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
-  1. [Współtwórcy](#contributors)
-  1. [Licencja](#license)
-  1. [Poprawki](#amendments)
+  1. [Współtwórcy](#współtwórcy)
+  1. [Licencja](#licencja)
+  1. [Poprawki](#poprawki)
 
 ## Typy
 
@@ -2018,7 +2018,7 @@ Inne przewodniki po stylach
   <a name="comparison--switch-blocks"></a><a name="15.5"></a>
   - [15.5](#comparison--switch-blocks) Użyj nawiasów klamrowych, aby utworzyć bloki w klauzulach `case` oraz `default` zawierające deklaracje leksykalne (np. `let`, `const`, `function`, czy `class`). eslint: [`no-case-declarations`](https://eslint.org/docs/rules/no-case-declarations.html)
 
-    > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
+    > Czemu? Deklaracje leksykalne są widoczne w całym bloku `switch`, ale są inicjalizowane tylko wtedy, gdy są przypisane, co dzieje się tylko po osiągnięciu jego `case`. Powoduje to problemy, gdy wiele klauzul `case` próbuje zdefiniować to samo.
 
     ```javascript
     // złe
@@ -2064,7 +2064,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="comparison--nested-ternaries"></a><a name="15.6"></a>
-  - [15.6](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions. eslint: [`no-nested-ternary`](https://eslint.org/docs/rules/no-nested-ternary.html)
+  - [15.6](#comparison--nested-ternaries) Ternary nie powinny być zagnieżdżone i zazwyczaj są wyrażeniami jednowierszowymi. eslint: [`no-nested-ternary`](https://eslint.org/docs/rules/no-nested-ternary.html)
 
     ```javascript
     // złe
@@ -2072,20 +2072,20 @@ Inne przewodniki po stylach
       ? "bar"
       : value1 > value2 ? "baz" : null;
 
-    // split into 2 separated ternary expressions
+    // podzielone na 2 oddzielne wyrażenia trójskładnikowe
     const maybeNull = value1 > value2 ? 'baz' : null;
 
-    // better
+    // lepiej
     const foo = maybe1 > maybe2
       ? 'bar'
       : maybeNull;
 
-    // best
+    // najlepiej
     const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
     ```
 
   <a name="comparison--unneeded-ternary"></a><a name="15.7"></a>
-  - [15.7](#comparison--unneeded-ternary) Avoid unneeded ternary statements. eslint: [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary.html)
+  - [15.7](#comparison--unneeded-ternary) Unikaj niepotrzebnych wyrażeń potrójnych. eslint: [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary.html)
 
     ```javascript
     // złe
@@ -2100,10 +2100,10 @@ Inne przewodniki po stylach
     ```
 
   <a name="comparison--no-mixed-operators"></a>
-  - [15.8](#comparison--no-mixed-operators) When mixing operators, enclose them in parentheses. The only exception is the standard arithmetic operators: `+`, `-`, and `**` since their precedence is broadly understood. We recommend enclosing `/` and `*` in parentheses because their precedence can be ambiguous when they are mixed.
+  - [15.8](#comparison--no-mixed-operators) Mieszając operatory, umieść je w nawiasach. Jedynym wyjątkiem są standardowe operatory arytmetyczne: `+`, `-`, i `**` ponieważ ich pierwszeństwo jest szeroko rozumiane. Zalecamy otoczyć `/` i `*` w w nawiasach, ponieważ ich pierwszeństwo może być dwuznaczne, gdy są mieszane.
   eslint: [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
 
-    > Why? This improves readability and clarifies the developer’s intention.
+    > Czemu? Poprawia to czytelność i wyjaśnia zamiar programisty.
 
     ```javascript
     // złe
@@ -2138,10 +2138,10 @@ Inne przewodniki po stylach
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Blocks
+## Bloki
 
   <a name="blocks--braces"></a><a name="16.1"></a>
-  - [16.1](#blocks--braces) Use braces with all multiline blocks. eslint: [`nonblock-statement-body-position`](https://eslint.org/docs/rules/nonblock-statement-body-position)
+  - [16.1](#blocks--braces) Używaj nawiasów klamrowych ze wszystkimi wielowierszowymi blokami. eslint: [`nonblock-statement-body-position`](https://eslint.org/docs/rules/nonblock-statement-body-position)
 
     ```javascript
     // złe
@@ -2166,7 +2166,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="blocks--cuddled-elses"></a><a name="16.2"></a>
-  - [16.2](#blocks--cuddled-elses) If you’re using multiline blocks with `if` and `else`, put `else` on the same line as your `if` block’s closing brace. eslint: [`brace-style`](https://eslint.org/docs/rules/brace-style.html)
+  - [16.2](#blocks--cuddled-elses) Jeśli używasz wielowierszowe bloki z `if` i `else`, umieść `else` w tej samej linii co nawias zamykający bloku `if`. eslint: [`brace-style`](https://eslint.org/docs/rules/brace-style.html)
 
     ```javascript
     // złe
@@ -2188,7 +2188,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="blocks--no-else-return"></a><a name="16.3"></a>
-  - [16.3](#blocks--no-else-return) If an `if` block always executes a `return` statement, the subsequent `else` block is unnecessary. A `return` in an `else if` block following an `if` block that contains a `return` can be separated into multiple `if` blocks. eslint: [`no-else-return`](https://eslint.org/docs/rules/no-else-return)
+  - [16.3](#blocks--no-else-return) Jeśli blok `if` zawsze wykonuje instrukcję `return`, kolejny blok `else` jest niepotrzebny. `return` w bloku `else if` po bloku `if`, który zawiera `return`, można podzielić na wiele bloków `if`. eslint: [`no-else-return`](https://eslint.org/docs/rules/no-else-return)
 
     ```javascript
     // złe
@@ -2311,7 +2311,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="control-statement--value-selection"></a><a name="control-statements--value-selection"></a>
-  - [17.2](#control-statements--value-selection) Don't use selection operators in place of control statements.
+  - [17.2](#control-statements--value-selection) Nie używaj operatorów wyboru zamiast instrukcji sterujących.
 
     ```javascript
     // złe
@@ -2325,10 +2325,10 @@ Inne przewodniki po stylach
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Comments
+## Komentarze
 
   <a name="comments--multiline"></a><a name="17.1"></a>
-  - [18.1](#comments--multiline) Use `/** ... */` for multiline comments.
+  - [18.1](#comments--multiline) Użyj `/** ... */` dla wielowierszowych komentarzy.
 
     ```javascript
     // złe
@@ -2358,7 +2358,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="comments--singleline"></a><a name="17.2"></a>
-  - [18.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block.
+  - [18.2](#comments--singleline) Użyj `//` dla komentarzy w pojedynczej linii. Umieść komentarze w jednym wierszu w nowym wierszu nad tematem komentarza. Umieść pusty wiersz przed komentarzem, chyba że znajduje się on w pierwszym wierszu bloku.
 
     ```javascript
     // złe
@@ -2397,11 +2397,11 @@ Inne przewodniki po stylach
     ```
 
   <a name="comments--spaces"></a>
-  - [18.3](#comments--spaces) Start all comments with a space to make it easier to read. eslint: [`spaced-comment`](https://eslint.org/docs/rules/spaced-comment)
+  - [18.3](#comments--spaces) Rozpocznij wszystkie komentarze spacją, aby ułatwić czytanie. eslint: [`spaced-comment`](https://eslint.org/docs/rules/spaced-comment)
 
     ```javascript
     // złe
-    //is current tab
+    // is current tab
     const active = true;
 
     // dobre
@@ -2434,10 +2434,10 @@ Inne przewodniki po stylach
     ```
 
   <a name="comments--actionitems"></a><a name="17.3"></a>
-  - [18.4](#comments--actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you’re pointing out a problem that needs to be revisited, or if you’re suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
+  - [18.4](#comments--actionitems) Poprzedź swoje komentarze za pomocą `FIXME` lub `TODO` co pomaga innym programistom w szybkim zrozumieniu, czy wskazujesz problem, który należy ponownie zgłosić, lub sugerujesz rozwiązanie problemu, który należy wdrożyć. Różnią się one od zwykłych komentarzy, ponieważ można je wykonać. Działania są `FIXME: -- need to figure this out` lub `TODO: -- need to implement`.
 
   <a name="comments--fixme"></a><a name="17.4"></a>
-  - [18.5](#comments--fixme) Use `// FIXME:` to annotate problems.
+  - [18.5](#comments--fixme) Użyj `// FIXME:` aby opisywać problemy.
 
     ```javascript
     class Calculator extends Abacus {
@@ -2451,7 +2451,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="comments--todo"></a><a name="17.5"></a>
-  - [18.6](#comments--todo) Use `// TODO:` to annotate solutions to problems.
+  - [18.6](#comments--todo) Użyj `// TODO:` aby opisywać rozwiązania problemów.
 
     ```javascript
     class Calculator extends Abacus {
@@ -2466,10 +2466,10 @@ Inne przewodniki po stylach
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Whitespace
+## Białe spacje
 
   <a name="whitespace--spaces"></a><a name="18.1"></a>
-  - [19.1](#whitespace--spaces) Use soft tabs (space character) set to 2 spaces. eslint: [`indent`](https://eslint.org/docs/rules/indent.html)
+  - [19.1](#whitespace--spaces) Użyj miękkich tabulatorów (spacji) ustawionych na 2 spacje. eslint: [`indent`](https://eslint.org/docs/rules/indent.html)
 
     ```javascript
     // złe
@@ -2489,7 +2489,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="whitespace--before-blocks"></a><a name="18.2"></a>
-  - [19.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks.html)
+  - [19.2](#whitespace--before-blocks) Umieść 1 spację przed nawiasem rozpoczynającym. eslint: [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks.html)
 
     ```javascript
     // złe
@@ -2516,7 +2516,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="whitespace--around-keywords"></a><a name="18.3"></a>
-  - [19.3](#whitespace--around-keywords) Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](https://eslint.org/docs/rules/keyword-spacing.html)
+  - [19.3](#whitespace--around-keywords) Umieść 1 spację przed nawiasem otwierającym w instrukcjach sterujących (`if`, `while` etc.). Nie umieszczaj spacji między listą argumentów a nazwą funkcji w wywołaniach funkcji i deklaracjach. eslint: [`keyword-spacing`](https://eslint.org/docs/rules/keyword-spacing.html)
 
     ```javascript
     // złe
@@ -2552,7 +2552,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="whitespace--newline-at-end"></a><a name="18.5"></a>
-  - [19.5](#whitespace--newline-at-end) End files with a single newline character. eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
+  - [19.5](#whitespace--newline-at-end) Zakończ pliki pojedynczym znakiem nowej linii. eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
 
     ```javascript
     // złe
@@ -2621,7 +2621,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="whitespace--after-blocks"></a><a name="18.7"></a>
-  - [19.7](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement.
+  - [19.7](#whitespace--after-blocks) Pozostaw puste wiersze po blokach i przed następną instrukcją.
 
     ```javascript
     // złe
@@ -2679,7 +2679,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="whitespace--padded-blocks"></a><a name="18.8"></a>
-  - [19.8](#whitespace--padded-blocks) Do not pad your blocks with blank lines. eslint: [`padded-blocks`](https://eslint.org/docs/rules/padded-blocks.html)
+  - [19.8](#whitespace--padded-blocks) Nie wypełniaj bloków pustymi liniami. eslint: [`padded-blocks`](https://eslint.org/docs/rules/padded-blocks.html)
 
     ```javascript
     // złe
@@ -2720,7 +2720,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="whitespace--no-multiple-blanks"></a>
-  - [19.9](#whitespace--no-multiple-blanks) Do not use multiple blank lines to pad your code. eslint: [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)
+  - [19.9](#whitespace--no-multiple-blanks) Nie używaj wielu pustych linii do uzupełnienia kodu. eslint: [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)
 
     <!-- markdownlint-disable MD012 -->
     ```javascript
@@ -2774,7 +2774,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="whitespace--in-parens"></a><a name="18.9"></a>
-  - [19.10](#whitespace--in-parens) Do not add spaces inside parentheses. eslint: [`space-in-parens`](https://eslint.org/docs/rules/space-in-parens.html)
+  - [19.10](#whitespace--in-parens) Nie dodawaj spacji w nawiasach. eslint: [`space-in-parens`](https://eslint.org/docs/rules/space-in-parens.html)
 
     ```javascript
     // złe
@@ -2799,7 +2799,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="whitespace--in-brackets"></a><a name="18.10"></a>
-  - [19.11](#whitespace--in-brackets) Do not add spaces inside brackets. eslint: [`array-bracket-spacing`](https://eslint.org/docs/rules/array-bracket-spacing.html)
+  - [19.11](#whitespace--in-brackets) Nie dodawaj spacji w nawiasach. eslint: [`array-bracket-spacing`](https://eslint.org/docs/rules/array-bracket-spacing.html)
 
     ```javascript
     // złe
@@ -2812,7 +2812,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="whitespace--in-braces"></a><a name="18.11"></a>
-  - [19.12](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](https://eslint.org/docs/rules/object-curly-spacing.html)
+  - [19.12](#whitespace--in-braces) Dodaj spacje w nawiasach klamrowych. eslint: [`object-curly-spacing`](https://eslint.org/docs/rules/object-curly-spacing.html)
 
     ```javascript
     // złe
@@ -2823,9 +2823,9 @@ Inne przewodniki po stylach
     ```
 
   <a name="whitespace--max-len"></a><a name="18.12"></a>
-  - [19.13](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](https://eslint.org/docs/rules/max-len.html)
+  - [19.13](#whitespace--max-len) Unikaj linii kodu dłuższych niż 100 znaków (w tym białych znaków). Uwaga: na [powyżej](#strings--line-length), długie stringi są zwolnione z tej zasady i nie powinny być dzielone. eslint: [`max-len`](https://eslint.org/docs/rules/max-len.html)
 
-    > Why? This ensures readability and maintainability.
+    > Czemu? Zapewnia to czytelność i łatwość konserwacji.
 
     ```javascript
     // złe
@@ -2866,7 +2866,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="whitespace--comma-spacing"></a>
-  - [19.15](#whitespace--comma-spacing) Avoid spaces before commas and require a space after commas. eslint: [`comma-spacing`](https://eslint.org/docs/rules/comma-spacing)
+  - [19.15](#whitespace--comma-spacing) Unikaj spacji przed przecinkami i wymagaj spacji po przecinkach. eslint: [`comma-spacing`](https://eslint.org/docs/rules/comma-spacing)
 
     ```javascript
     // złe
@@ -2896,7 +2896,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="whitespace--func-call-spacing"></a>
-  - [19.17](#whitespace--func-call-spacing) Avoid spaces between functions and their invocations. eslint: [`func-call-spacing`](https://eslint.org/docs/rules/func-call-spacing)
+  - [19.17](#whitespace--func-call-spacing) Unikaj spacji między funkcjami i ich wywołaniami. eslint: [`func-call-spacing`](https://eslint.org/docs/rules/func-call-spacing)
 
     ```javascript
     // złe
@@ -2910,7 +2910,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="whitespace--key-spacing"></a>
-  - [19.18](#whitespace--key-spacing) Enforce spacing between keys and values in object literal properties. eslint: [`key-spacing`](https://eslint.org/docs/rules/key-spacing)
+  - [19.18](#whitespace--key-spacing)Wymuszaj odstępy między kluczami a wartościami we właściwościach literału obiektu. eslint: [`key-spacing`](https://eslint.org/docs/rules/key-spacing)
 
     ```javascript
     // złe
@@ -2922,25 +2922,25 @@ Inne przewodniki po stylach
     ```
 
   <a name="whitespace--no-trailing-spaces"></a>
-  - [19.19](#whitespace--no-trailing-spaces) Avoid trailing spaces at the end of lines. eslint: [`no-trailing-spaces`](https://eslint.org/docs/rules/no-trailing-spaces)
+  - [19.19](#whitespace--no-trailing-spaces) Unikaj spacji na końcu linii. eslint: [`no-trailing-spaces`](https://eslint.org/docs/rules/no-trailing-spaces)
 
   <a name="whitespace--no-multiple-empty-lines"></a>
-  - [19.20](#whitespace--no-multiple-empty-lines) Avoid multiple empty lines, only allow one newline at the end of files, and avoid a newline at the beginning of files. eslint: [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)
+  - [19.20](#whitespace--no-multiple-empty-lines) Unikaj wielu pustych linii, zezwalaj tylko na jedną nową linię na końcu plików i unikaj nowej linii na początku plików. eslint: [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)
 
     <!-- markdownlint-disable MD012 -->
     ```javascript
-    // złe - multiple empty lines
+    // złe - wiele pustych linii
     var x = 1;
 
 
     var y = 2;
 
-    // złe - 2+ newlines at end of file
+    // złe - 2+ nowe linie na końcu pliku
     var x = 1;
     var y = 2;
 
 
-    // złe - 1+ newline(s) at beginning of file
+    // złe - 1+ nowa linia(e) na początku pliku
 
     var x = 1;
     var y = 2;
@@ -2954,7 +2954,7 @@ Inne przewodniki po stylach
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Commas
+## Przecinki
 
   <a name="commas--leading-trailing"></a><a name="19.1"></a>
   - [20.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](https://eslint.org/docs/rules/comma-style.html)
@@ -3089,12 +3089,12 @@ Inne przewodniki po stylach
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Semicolons
+## Średniki
 
   <a name="semicolons--required"></a><a name="20.1"></a>
   - [21.1](#semicolons--required) **Yup.** eslint: [`semi`](https://eslint.org/docs/rules/semi.html)
 
-    > Why? When JavaScript encounters a line break without a semicolon, it uses a set of rules called [Automatic Semicolon Insertion](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion) to determine whether or not it should regard that line break as the end of a statement, and (as the name implies) place a semicolon into your code before the line break if it thinks so. ASI contains a few eccentric behaviors, though, and your code will break if JavaScript misinterprets your line break. These rules will become more complicated as new features become a part of JavaScript. Explicitly terminating your statements and configuring your linter to catch missing semicolons will help prevent you from encountering issues.
+    > Czemu? Gdy JavaScript napotyka podział wiersza bez średnika, używa zestawu reguł o nazwie [Automatic Semicolon Insertion](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion) aby ustalić, czy powinien on traktować podział wiersza jako koniec instrukcji i (jak sama nazwa wskazuje) umieścić średnik w kodzie przed podziałem wiersza, jeśli tak uważa. ASI zawiera jednak kilka ekscentrycznych zachowań, a twój kod się zepsuje, jeśli JavaScript źle interpretuje podział linii. Reguły te staną się bardziej skomplikowane, gdy nowe funkcje staną się częścią JavaScript. Jawne zakończenie instrukcji i konfiguracja linijki w celu wychwycenia brakujących średników pomoże ci uniknąć problemów.
 
     ```javascript
     // złe - raises exception
@@ -3228,10 +3228,10 @@ Inne przewodniki po stylach
 
 **[⬆ powrót do góry](#spis-treści)**
 
-## Naming Conventions
+## Konwencje nazewnictwa
 
   <a name="naming--descriptive"></a><a name="22.1"></a>
-  - [23.1](#naming--descriptive) Avoid single letter names. Be descriptive with your naming. eslint: [`id-length`](https://eslint.org/docs/rules/id-length)
+  - [23.1](#naming--descriptive) Unikaj nazw jednoliterowych. Podaj swoje nazwy w sposób opisowy. eslint: [`id-length`](https://eslint.org/docs/rules/id-length)
 
     ```javascript
     // złe
@@ -3246,7 +3246,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="naming--camelCase"></a><a name="22.2"></a>
-  - [23.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](https://eslint.org/docs/rules/camelcase.html)
+  - [23.2](#naming--camelCase) Użyj camelCase podczas nadawania nazw dla obiektów, funkcji, i instancji. eslint: [`camelcase`](https://eslint.org/docs/rules/camelcase.html)
 
     ```javascript
     // złe
@@ -3260,7 +3260,7 @@ Inne przewodniki po stylach
     ```
 
   <a name="naming--PascalCase"></a><a name="22.3"></a>
-  - [23.3](#naming--PascalCase) Use PascalCase only when naming constructors or classes. eslint: [`new-cap`](https://eslint.org/docs/rules/new-cap.html)
+  - [23.3](#naming--PascalCase) Użyj PascalCase tylko podczas nazywania konstruktorów lub klas. eslint: [`new-cap`](https://eslint.org/docs/rules/new-cap.html)
 
     ```javascript
     // złe
